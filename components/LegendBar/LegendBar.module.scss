@@ -1,0 +1,51 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  color: var(--color-text-dim);
+  text-transform: lowercase;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.start {
+  background: var(--color-start);
+}
+.end {
+  background: var(--color-end);
+}
+.wall {
+  background: var(--color-wall);
+  border: 1px solid #4a555c;
+}
+.weight {
+  background: var(--color-weight);
+}
+.frontier {
+  background: var(--color-frontier);
+  box-shadow: 0 0 8px 0 rgba(245, 166, 35, 0.5);
+}
+.visited {
+  background: var(--color-visited);
+}
+.path {
+  background: var(--color-path);
+  box-shadow: 0 0 8px 0 rgba(47, 224, 184, 0.5);
+}

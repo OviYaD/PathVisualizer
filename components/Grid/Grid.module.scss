@@ -1,0 +1,188 @@
+.frame {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  user-select: none;
+  box-shadow: 0 20px 50px -30px rgba(0, 0, 0, 0.6);
+}
+
+.scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 40%;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(56, 189, 248, 0.08) 45%,
+    rgba(56, 189, 248, 0.16) 50%,
+    rgba(56, 189, 248, 0.08) 55%,
+    transparent 100%
+  );
+  animation: sweep 1.6s linear infinite;
+}
+
+@keyframes sweep {
+  0% {
+    top: -40%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.cell {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.12s ease, border-color 0.12s ease, transform 0.12s ease;
+
+  &:hover {
+    border-color: var(--color-text-faint);
+  }
+}
+
+.marker {
+  font-family: var(--font-display);
+  font-size: clamp(9px, 1.6vw, 12px);
+  font-weight: 700;
+  color: var(--color-bg);
+  letter-spacing: 0.02em;
+}
+
+.weightMarker {
+  font-family: var(--font-display);
+  font-size: clamp(8px, 1.4vw, 11px);
+  font-weight: 600;
+  color: var(--color-weight-text);
+}
+
+.wall {
+  background: var(--color-wall);
+  border-color: #3d474e;
+  animation: dropIn 0.22s ease;
+}
+
+.weight {
+  background: var(--color-weight);
+  border-color: #8a5f2a;
+}
+
+.start {
+  background: var(--color-start);
+  border-color: var(--color-start);
+  border-radius: 6px;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.18);
+  z-index: 3;
+}
+
+.end {
+  background: var(--color-end);
+  border-color: var(--color-end);
+  border-radius: 6px;
+  box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.18);
+  z-index: 3;
+}
+
+.onPath {
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
+}
+
+.frontier {
+  background: var(--color-frontier);
+  border-color: var(--color-frontier);
+  transform: scale(1.12);
+  z-index: 2;
+  animation: pulse 0.35s ease;
+}
+
+.visited {
+  background: var(--color-visited-dim);
+  border-color: var(--color-visited);
+  animation: reveal 0.35s ease;
+}
+
+.path {
+  background: var(--color-path);
+  border-color: var(--color-path);
+  z-index: 2;
+  animation: stamp 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes reveal {
+  from {
+    transform: scale(0.35);
+    background: var(--color-frontier);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.5);
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(251, 191, 36, 0);
+  }
+  100% {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes stamp {
+  0% {
+    transform: scale(0.3);
+  }
+  60% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes dropIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scanline {
+    animation: none;
+    display: none;
+  }
+  .wall,
+  .visited,
+  .frontier,
+  .path {
+    animation: none;
+  }
+}
