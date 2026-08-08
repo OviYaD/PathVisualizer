@@ -1,0 +1,26 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#01afb5" />
+      <stop offset="1" stop-color="#028f94" />
+    </linearGradient>
+  </defs>
+  <!-- tag body: rounded square with one clipped corner, like a swing tag -->
+  <path
+    d="M10 4 H54 A10 10 0 0 1 64 14 V54 A10 10 0 0 1 54 64 H14 A10 10 0 0 1 4 54 V14 L10 4 Z"
+    fill="url(#g)"
+  />
+  <!-- punch hole -->
+  <circle cx="16" cy="16" r="5" fill="#faf6ef" />
+  <circle cx="16" cy="16" r="5" fill="none" stroke="#028f94" stroke-width="1" />
+  <!-- monogram -->
+  <text
+    x="38"
+    y="46"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="30"
+    font-weight="700"
+    fill="#faf6ef"
+  >O</text>
+</svg>
