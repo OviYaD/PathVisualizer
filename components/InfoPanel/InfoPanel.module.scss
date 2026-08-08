@@ -1,0 +1,165 @@
+.infoPanel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px 24px;
+}
+
+.infoHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.infoName {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.infoStable {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal);
+  border: 1px solid var(--teal-border);
+  background: var(--teal-dim);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.infoWeighted {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--violet);
+  border: 1px solid var(--violet-dim);
+  background: var(--violet-dim);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.infoDescription {
+  color: var(--text-secondary);
+  font-size: 14.5px;
+  line-height: 1.6;
+  max-width: 68ch;
+  margin: 0 0 18px;
+}
+
+.infoBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.complexityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.complexityCell {
+  background: var(--surface-alt);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 12px 15px;
+}
+
+.complexityCell dt {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 5px;
+}
+
+.complexityCell dd {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--teal);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.codeBlock {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.codeHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-soft);
+  background: var(--surface-alt);
+}
+
+.codeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.codeTitle {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-left: 6px;
+}
+
+.codePre {
+  margin: 0;
+  padding: 12px 0;
+  overflow-x: auto;
+}
+
+.codeLine {
+  display: flex;
+  gap: 14px;
+  padding: 1px 16px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.75;
+  white-space: pre;
+}
+
+.codeLineNumber {
+  flex: 0 0 auto;
+  width: 14px;
+  text-align: right;
+  color: var(--text-muted);
+  opacity: 0.6;
+  user-select: none;
+}
+
+.codeLineText {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 820px) {
+  .infoBody {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .complexityGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

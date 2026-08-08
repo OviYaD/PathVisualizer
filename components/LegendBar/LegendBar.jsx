@@ -1,26 +1,25 @@
-"use client";
-
 import styles from "./LegendBar.module.scss";
 
 const ITEMS = [
-  { key: "start", label: "start" },
-  { key: "end", label: "end" },
-  { key: "wall", label: "wall" },
-  { key: "weight", label: "weighted" },
-  { key: "frontier", label: "frontier" },
-  { key: "visited", label: "visited" },
-  { key: "path", label: "path" },
+  { state: "idle", label: "unvisited" },
+  { state: "wall", label: "wall" },
+  { state: "weight", label: "weighted terrain" },
+  { state: "frontier", label: "frontier" },
+  { state: "visited", label: "visited" },
+  { state: "path", label: "shortest path" },
+  { state: "start", label: "start" },
+  { state: "end", label: "end" },
 ];
 
 export default function LegendBar() {
   return (
-    <div className={styles.bar} role="list" aria-label="Cell state legend">
+    <ul className={styles.legend}>
       {ITEMS.map((item) => (
-        <span key={item.key} className={styles.pill} role="listitem">
-          <span className={`${styles.dot} ${styles[item.key]}`} aria-hidden="true" />
+        <li key={item.state} className={styles.item}>
+          <span className={`${styles.swatch} ${styles[item.state]}`} aria-hidden="true" />
           {item.label}
-        </span>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

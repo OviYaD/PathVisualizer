@@ -1,38 +1,44 @@
 :root {
-  /* Surfaces */
-  --color-bg: #0a0d10;
-  --color-surface: #10151a;
-  --color-surface-2: #171d23;
-  --color-border: #232b31;
-  --color-border-soft: #1b2126;
+  /* flat, clean dark surfaces — same palette as the sorting visualizer */
+  --bg: #0a0a0f;
+  --bg-raised: #101116;
+  --surface: #121319;
+  --surface-alt: #16171e;
+  --border: #23252d;
+  --border-soft: #1a1b22;
 
-  /* Text */
-  --color-text: #eef2f4;
-  --color-text-dim: #8b98a1;
-  --color-text-faint: #57626b;
+  --text-primary: #f4f5f7;
+  --text-secondary: #9ca0ab;
+  --text-muted: #62666f;
 
-  /* Grid semantics */
-  --color-wall: #333d44;
-  --color-weight: #6b4a1f;
-  --color-weight-text: #ffcf8a;
-  --color-start: #34d399;
-  --color-end: #f0506f;
-  --color-frontier: #f5a623;
-  --color-visited: #8b6ef0;
-  --color-visited-dim: #2a2050;
-  --color-path: #2fe0b8;
+  /* single accent: teal */
+  --teal: #2dd4bf;
+  --teal-dim: rgba(45, 212, 191, 0.12);
+  --teal-border: rgba(45, 212, 191, 0.35);
 
-  /* Primary UI accent (mint/teal) */
-  --color-accent: #2fe0b8;
-  --color-accent-dim: #123832;
+  /* state colors: flat, no neon glow */
+  --amber: #f5a623;
+  --amber-dim: rgba(245, 166, 35, 0.14);
+  --rose: #f4536a;
+  --rose-dim: rgba(244, 83, 106, 0.14);
+  --violet: #8b7cf6;
+  --violet-dim: rgba(139, 124, 246, 0.14);
 
-  --font-display: var(--font-mono), "SFMono-Regular", Menlo, monospace;
-  --font-sans: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-heading: var(--font-title), var(--font-body), sans-serif;
+  --bar-idle-top: #2b2e37;
+  --bar-idle-bottom: #1b1c22;
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 14px;
+  /* graph-only additions: walls and weighted terrain have no sorting equivalent */
+  --wall: #2c2f37;
+  --wall-border: #3a3e47;
+  --weight-text: #d9cffb;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --font-display: var(--font-inter), "Inter", "Segoe UI", sans-serif;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", "SFMono-Regular", Menlo, monospace;
 
   color-scheme: dark;
 }
@@ -48,14 +54,15 @@ body {
 }
 
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-display);
   -webkit-font-smoothing: antialiased;
-  background-image:
-    radial-gradient(circle at 15% 0%, rgba(56, 189, 248, 0.06), transparent 45%),
-    radial-gradient(circle at 85% 100%, rgba(45, 212, 191, 0.05), transparent 45%);
-  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
 }
 
 button {
@@ -64,22 +71,23 @@ button {
 }
 
 ::selection {
-  background: var(--color-accent-dim);
-  color: var(--color-text);
+  background: var(--teal-dim);
+  color: var(--text-primary);
 }
 
-*:focus-visible {
-  outline: 2px solid var(--color-accent);
+:focus-visible {
+  outline: 2px solid var(--teal);
   outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
 }

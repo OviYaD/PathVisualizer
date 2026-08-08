@@ -51,7 +51,7 @@ const GridCell = memo(function GridCell({ node, status, onMouseDown, onMouseEnte
   );
 });
 
-export default function Grid({ board, run, animationStep, isRunning, onCellMouseDown, onCellMouseEnter, onCellMouseUp }) {
+export default function Grid({ board, run, animationStep, onCellMouseDown, onCellMouseEnter, onCellMouseUp }) {
   const cols = board[0]?.length ?? 0;
 
   return (
@@ -60,7 +60,6 @@ export default function Grid({ board, run, animationStep, isRunning, onCellMouse
       onMouseLeave={onCellMouseUp}
       onMouseUp={onCellMouseUp}
     >
-      {isRunning && <div className={styles.scanline} aria-hidden="true" />}
       <div
         className={styles.grid}
         role="grid"
